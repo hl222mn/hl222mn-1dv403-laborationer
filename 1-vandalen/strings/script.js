@@ -4,17 +4,32 @@ window.onload = function(){
 
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var convertString = function(str){
-		// Plats för förändring.		
+		
+		// Plats för förändring.
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
-	
+		if (str !== "") {
+			var newStr = "";
+			for (var i = 0; i < str.length; i+= 1) 
+				if (str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 90 || str.charCodeAt(i) >= 134 && str.charCodeAt(i) <= 153) {
+					newStr += str.charAt(i).toLowerCase().replace(/a/g, "#");
+				} 
+				else {
+					newStr += str.charAt(i).toUpperCase().replace(/A/g, "#");
+				}
+				return newStr;
+				} 
+		else {
+			return ["Fel! Du har inte matat in en sträng"];
+		}
+	}		
+ 
 
+//http://www.w3schools.com/jsref/jsref_replace.asp
+//http://www.openjs.com/scripts/strings/setcharat_function.php
+//http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_charcodeat 
+//http://www.theasciicode.com.ar/extended-ascii-code/box-drawings-single-horizontal-line-character-ascii-code-196.html
 
-
-
-
-
-	};
 	// ------------------------------------------------------------------------------
 
 

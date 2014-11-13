@@ -16,12 +16,12 @@ window.onload = function(){
 		return [false, "Talet är utanför intervallet 0 - 100"]
 	}
 	else if (number==secret) {
-		return [true, "Grattis du vann! Det hemliga talet var " + secret + " och du behövde " + guesses + " gissningar för att hitta det."]
+		return [true, "Grattis du vann! Det hemliga talet var " + secret + " och du behövde " + tries + " gissningar för att hitta det."]
 	}
 	else if (number < secret) {
 		return [false, "Det hemliga talet är högre!"]
 	}
-	else if (number > secret) {
+	else (number > secret) {
 		return [false, "Det hemliga talet är lägre!"]
 	}
 		
