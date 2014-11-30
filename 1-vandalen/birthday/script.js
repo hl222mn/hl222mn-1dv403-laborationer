@@ -4,14 +4,28 @@ window.onload = function(){
 
 	
 	var birthday = function(date){
+	//inmatning av personnummer
+		var dateOfBirth = new Date(date);
+		var currentDate = new Date();
 		
-
-
-			// Din kod här.
-
-
-
-
+	//beräkna millisekunder på månad resp dag kvar 
+	//http://www.w3schools.com/jsref/jsref_setfullyear.asp
+	
+		if (currentDate > dateOfBirth) {
+			dateOfBirth.setFullYear(currentDate.getFullYear() + 1);
+			
+			var daysRemaining = Math.ceil((dateOfBirth.getTime() - currentDate.getTime()) / (1000*60*60*24));
+			if (daysRemaining >= 365){
+				var lessThanAYear = daysRemaining - 365;
+				return lessThanAYear;
+			}
+			return daysRemaining.toString(); 
+		}
+		else if (isNaN (dateOfBirth)){
+			throw new Error ("Felaktig inmatning - Ange ÅÅÅÅ-MM-DD");
+		}
+		
+	//presentera svar enligt switchen
 	};
 	// ------------------------------------------------------------------------------
 
@@ -35,7 +49,7 @@ window.onload = function(){
 					break;
 				case 1: message = "Du fyller år imorgon!";
 					break;
-				default: message = "Du fyller år om " + answer + " dagar";
+				default: message = "Du fyller år om " + answer + " dagar.";
 					break;
 			}
 
